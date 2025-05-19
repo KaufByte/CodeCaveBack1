@@ -415,25 +415,21 @@ const RegisterPage: React.FC = () => {
     }
   
     try {
-      // 1) See if that email already exists
       let exists = false;
       try {
         const cleanEmail = email.trim();
         const check = await fetch(`http://localhost:8000/api/user/${encodeURIComponent(cleanEmail)}/`);
-        exists = check.ok;          // 200 → user exists
+        exists = check.ok;          
       } catch {
-        /* network or 404 → user does NOT exist, which is fine */
       }
       if (exists) {
         alert("User with this email already exists");
         return;
       }
   
-      // 2) Build your newUser payload, including language
       const language = localStorage.getItem("language") || "en";
       const newUser  = { username, email, country, password,language};
   
-      // 3) Actually register
       const registerRes = await fetch(
         "http://localhost:8000/api/register/",
         {
@@ -445,7 +441,6 @@ const RegisterPage: React.FC = () => {
   
       if (registerRes.ok) {
         const data = await registerRes.json();
-        // store your JWTs & user
         localStorage.setItem("token",         data.access);
         localStorage.setItem("refreshToken",  data.refresh);
         localStorage.setItem("userId",        data.user.id);
@@ -463,19 +458,17 @@ const RegisterPage: React.FC = () => {
   };
   return (
     <Box sx={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
-      {/* 1) Full-bleed фон */}
       <Box
         sx={{
           position: "fixed", top: 0, left: 0,
           width: "100%", height: "100%",
           background: isDarkMode
-            ? "#000"  // можете замінити на градієнт
+            ? "#000"  
             : "#fafafa",
           zIndex: -2,
         }}
       />
 
-      {/* 2) Центрові розмиті плями */}
       <Box
         sx={{
           position: "absolute",
@@ -503,7 +496,6 @@ const RegisterPage: React.FC = () => {
         }}
       />
 
-      {/* 3) Контент поверх */}
       <Box
         sx={{
           position: "relative",
@@ -519,7 +511,6 @@ const RegisterPage: React.FC = () => {
       <Box sx={{ position: "absolute", top: 16, right: 16, zIndex: 2 }}>
         <LanguageSelector />
       </Box>
-      {/* Logo + Theme toggle */}
       <Box sx={{ textAlign: "center", mb:2, zIndex: 1 }}>
         <Box
           component="img"
@@ -537,7 +528,7 @@ const RegisterPage: React.FC = () => {
           sx={{
             color: isDarkMode ? "#ddd" : "#555",
             fontWeight: 500,
-            fontSize: 20, // чуть уменьшено
+            fontSize: 20, 
           }}
       >
             {t("switchMode")}
@@ -546,11 +537,10 @@ const RegisterPage: React.FC = () => {
         </Box>
       </Box>
 
-      {/* Registration Form */}
       <Box
         sx={{
           width: isMobile ? "85%" : 340,
-          mt: -0.5, // отодвинем форму чуть ниже
+          mt: -0.5, 
           p: 4,
           borderRadius: 4,
           position: "relative",
