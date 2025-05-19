@@ -1,0 +1,29 @@
+{
+  "addVideo": "Add Video",
+  "title": "Title",
+  "description": "Description",
+  "hashtags": "Hashtags",
+  "previewImage": "Preview Image",
+  "videoFile": "Video File",
+  "timecodes": "Timecodes",
+  "timecodeFormat": "00:00:00",
+  "materialTitle": "Material Title",
+  "materialUrl": "Material URL",
+  "additionalMaterials": "Additional Materials",
+  "addMaterialsCheckbox": "Add Additional Materials",
+  "add": "Add",
+  "cancel": "Cancel",
+  "fillRequired": "Please fill in all required fields.",
+  "invalidUrl": "Invalid URL",
+  "roles": {
+    "Chilli Middle": "Chilli Middle",
+    "Powerful SEO": "Powerful SEO"
+  },
+  "save": "Save",
+  "editVideo": "Edit Video",
+  "deleteConfirm":{
+    "title":"Delete video?",
+    "warning":"This action cannot be undone."
+  },
+  "delete":"Delete"
+}

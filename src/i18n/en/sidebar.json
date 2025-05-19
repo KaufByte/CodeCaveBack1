@@ -1,0 +1,9 @@
+{
+    "main": "Main",
+    "feed": "Feed",
+    "subscription": "Subscription",
+    "payments": "Payments",
+    "settings": "Settings",
+    "support": "Support",
+    "logout": "Log out"
+  }

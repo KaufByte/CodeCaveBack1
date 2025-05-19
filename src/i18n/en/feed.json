@@ -1,0 +1,16 @@
+{
+  "title": "Feed",
+  "timecodes": "Timecodes",
+  "showMore": "Show more",
+  "hide": "Hide",
+  "additionalMaterials": "Additional Materials",
+  "requiredLevel": "Required level",
+  "or": "or",
+  "upgradeLevel": "Upgrade access",
+  "upgradeToWatch": "Upgrade to watch videos available from {{level}} level",
+  "roles": {
+    "Junior": "Junior",
+    "Chilli": "Coffee of Middle",
+    "Powerful SEO": "Powerful SEO"
+  }
+}

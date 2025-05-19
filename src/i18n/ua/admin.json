@@ -1,0 +1,29 @@
+{
+  "addVideo": "Додати відео",
+  "title": "Заголовок",
+  "description": "Опис",
+  "hashtags": "Хештеги",
+  "previewImage": "Зображення-превʼю",
+  "videoFile": "Відеофайл",
+  "timecodes": "Таймкоди",
+  "timecodeFormat": "00:00:00",
+  "materialTitle": "Назва матеріалу",
+  "materialUrl": "Посилання на матеріал",
+  "additionalMaterials": "Додаткові матеріали",
+  "addMaterialsCheckbox": "Додати додаткові матеріали",
+  "add": "Додати",
+  "cancel": "Скасувати",
+  "fillRequired": "Будь ласка, заповніть усі обовʼязкові поля.",
+  "invalidUrl": "Недійсне посилання",
+  "roles": {
+    "Chilli Middle": "Chilli Middle",
+    "Powerful SEO": "Потужне SEO"
+  },
+  "save": "Зберегти",
+  "editVideo": "Редагувати відео",
+  "deleteConfirm":{
+    "title":"Видалити відео?",
+    "warning":"Цю дію неможливо скасувати."
+  },
+  "delete":"Видалити"
+}
