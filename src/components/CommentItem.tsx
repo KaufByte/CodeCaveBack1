@@ -275,7 +275,7 @@ const CommentItem: React.FC<Props> = ({ comment, onReply, onLikeUpdate, onDelete
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ liked_by: updatedLikedBy }),
+      body: JSON.stringify({ likedBy: updatedLikedBy }),
     });
   
     if (res.status === 401) {
@@ -289,7 +289,7 @@ const CommentItem: React.FC<Props> = ({ comment, onReply, onLikeUpdate, onDelete
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ liked_by: updatedLikedBy }),
+        body: JSON.stringify({ likedBy: updatedLikedBy }),
       });
     }
   
