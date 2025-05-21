@@ -118,7 +118,7 @@ const mappedLevel = useMemo(() => {
     if (!url) return ""; 
     if (url instanceof File) return URL.createObjectURL(url);
     if (typeof url === "string" && url.startsWith("http")) return url;
-    return `http://localhost:8000${url.startsWith("/") ? "" : "/"}${url}`;
+    return `https://codecaveback2.onrender.com/${url.startsWith("/") ? "" : "/"}${url}`;
   };
  const isAccessibleLevel = (userLevel: string, requiredLevel: string): boolean => {
   if (userRole === "admin") return true;
@@ -136,7 +136,7 @@ const mappedLevel = useMemo(() => {
       if (!token) return;
 
       try {
-        const res = await fetch("http://localhost:8000/api/me/", {
+        const res = await fetch("https://codecaveback2.onrender.com/api/me/", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -163,7 +163,7 @@ const mappedLevel = useMemo(() => {
 useEffect(() => {
   if (!userId) return;
 
-  fetch("http://localhost:8000/api/videos/")
+  fetch("https://codecaveback2.onrender.com/api/videos/")
     .then((res) => res.json())
     .then((raw) => {
       const data: Post[] = raw.map((v: any) => {
@@ -210,7 +210,7 @@ useEffect(() => {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/comments-count/")
+    fetch("https://codecaveback2.onrender.com/api/comments-count/")
       .then(res => res.json())
       .then((data) => setCommentCounts(data));
   }, []);
@@ -233,7 +233,7 @@ const toggleLike = async (videoId: number) => {
   const formData = new FormData();
   ids.forEach(id => formData.append("liked_by", id.toString()));
 
-  await fetch(`http://localhost:8000/api/videos/${videoId}/`, {
+  await fetch(`https://codecaveback2.onrender.com/api/videos/${videoId}/`, {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${localStorage.token}`,
@@ -249,7 +249,7 @@ const toggleLike = async (videoId: number) => {
 
   
   const handleAddVideo = async (formData: FormData) => {
-    const res = await fetch("http://localhost:8000/api/videos/", { method: "POST", body: formData });
+    const res = await fetch("https://codecaveback2.onrender.com/api/videos/", { method: "POST", body: formData });
     const saved = await res.json();
     const newVideo: Post = {
       id: saved.id,
@@ -274,6 +274,33 @@ const toggleLike = async (videoId: number) => {
     
     
   };
+//   const handleAddVideo = async (formData: FormData) => {
+//   const saved: any = Object.fromEntries(formData.entries());
+
+//   const newVideo: Post = {
+//     id: Date.now(), // временный ID (можно заменить, если сервер вернет настоящий)
+//     type: "video",
+//     title: saved.title,
+//     date: { ua: saved.date_ua, us: saved.date_us },
+//     createdAt: {
+//       ua: saved.created_at_ua ?? "",
+//       us: saved.created_at_us ?? ""
+//     },
+//     previewUrl: saved.preview, // ссылка из Cloudinary
+//     videoUrl: saved.video,     // ссылка из Cloudinary
+//     description: saved.description ?? "",
+//     hashtags: JSON.parse(saved.hashtags ?? "[]"),
+//     likes: 0,
+//     comments: 0,
+//     timecodes: JSON.parse(saved.timecodes ?? "[]"),
+//     likedBy: [],
+//     materials: JSON.parse(saved.materials ?? "[]"),
+//     min_subscription_level: saved.min_subscription_level || "Free",
+//     isAccessible: isAccessibleLevel(mappedLevel, saved.min_subscription_level || "Free")
+//   };
+
+//   setVideos(prev => [newVideo, ...prev]);
+// };
 
   const handleSaveEdit = async (updated: Post) => {
     const formData = new FormData();
@@ -301,7 +328,7 @@ const toggleLike = async (videoId: number) => {
       formData.append("video", updated.videoUrl);
     }
 
-    const res = await fetch(`http://localhost:8000/api/videos/${updated.id}/`, {
+    const res = await fetch(`https://codecaveback2.onrender.com/api/videos/${updated.id}/`, {
       method: "PATCH",
       body: formData,
     });
@@ -311,7 +338,7 @@ const toggleLike = async (videoId: number) => {
   };
 
   const handleDelete = async (id: number) => {
-    await fetch(`http://localhost:8000/api/videos/${id}/`, {
+    await fetch(`https://codecaveback2.onrender.com/api/videos/${id}/`, {
       method: "DELETE",
     });
     setVideos(prev => prev.filter(v => v.id !== id));

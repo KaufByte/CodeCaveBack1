@@ -395,7 +395,7 @@ const RegisterPage: React.FC = () => {
   };
   
   useEffect(() => {
-    fetch("http://localhost:8000/api/location/")
+    fetch("https://codecaveback2.onrender.com/api/location/")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.country && COUNTRIES.includes(data.country)) {
@@ -418,7 +418,7 @@ const RegisterPage: React.FC = () => {
       let exists = false;
       try {
         const cleanEmail = email.trim();
-        const check = await fetch(`http://localhost:8000/api/user/${encodeURIComponent(cleanEmail)}/`);
+        const check = await fetch(`https://codecaveback2.onrender.com/api/user/${encodeURIComponent(cleanEmail)}/`);
         exists = check.ok;          
       } catch {
       }
@@ -431,7 +431,7 @@ const RegisterPage: React.FC = () => {
       const newUser  = { username, email, country, password,language};
   
       const registerRes = await fetch(
-        "http://localhost:8000/api/register/",
+        "https://codecaveback2.onrender.com/api/register/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

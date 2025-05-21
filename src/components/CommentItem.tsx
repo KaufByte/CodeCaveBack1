@@ -58,7 +58,7 @@ const CommentItem: React.FC<Props> = ({ comment, onReply, onLikeUpdate, onDelete
     const sanitized = updated.map(Number).filter(id => Number.isInteger(id));
 
     try {
-      let res = await authFetch(`http://localhost:8000/api/comments/${comment.id}/`, {
+      let res = await authFetch(`https://codecaveback2.onrender.com/api/comments/${comment.id}/`, {
         method: "PATCH",
         body: JSON.stringify({ liked_by: sanitized }),
       });
@@ -70,7 +70,7 @@ const CommentItem: React.FC<Props> = ({ comment, onReply, onLikeUpdate, onDelete
         if (!newToken) return;
 
         localStorage.setItem("token", newToken);
-        res = await authFetch(`http://localhost:8000/api/comments/${comment.id}/`, {
+        res = await authFetch(`https://codecaveback2.onrender.com/api/comments/${comment.id}/`, {
           method: "PATCH",
           body: JSON.stringify({ liked_by: sanitized }),
         });

@@ -283,7 +283,7 @@ const LoginPage: React.FC = () => {
     }
   
     try {
-      const response = await fetch("http://localhost:8000/api/token/", {
+      const response = await fetch("https://codecaveback2.onrender.com/api/token/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -294,7 +294,7 @@ const LoginPage: React.FC = () => {
         localStorage.setItem("token", tokenData.access); // JWT access token
         localStorage.setItem("refreshToken", tokenData.refresh); // JWT refresh token
   
-        const userRes = await authFetch(`http://localhost:8000/api/user/?email=${encodeURIComponent(email)}`);
+        const userRes = await authFetch(`https://codecaveback2.onrender.com/api/user/?email=${encodeURIComponent(email)}`);
         if (!userRes || !userRes.ok) {
           alert("Failed to fetch user data");
           return;

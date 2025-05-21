@@ -145,7 +145,7 @@ const CommentSection: React.FC<Props> = ({ videoId, onCommentAdded }) => {
   const { t } = useTranslation("comments");
 
   const fetchComments = async () => {
-    const res = await fetch(`http://localhost:8000/api/comments/?video=${videoId}`);
+    const res = await fetch(`https://codecaveback2.onrender.com/api/comments/?video=${videoId}`);
     const data: Comment[] = await res.json();
 
     const topLevel = data.filter((c) => !c.parent);
@@ -170,7 +170,7 @@ const CommentSection: React.FC<Props> = ({ videoId, onCommentAdded }) => {
       user_email: currentUser.email,
     };
 
-    const res = await fetch("http://localhost:8000/api/comments/", {
+    const res = await fetch("https://codecaveback2.onrender.com/api/comments/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -187,7 +187,7 @@ const CommentSection: React.FC<Props> = ({ videoId, onCommentAdded }) => {
   const handleDeleteComment = async (id: number) => {
     let token = localStorage.getItem("token");
   
-    let res = await fetch(`http://localhost:8000/api/comments/${id}/delete/`, {
+    let res = await fetch(`https://codecaveback2.onrender.com/api/comments/${id}/delete/`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -203,7 +203,7 @@ const CommentSection: React.FC<Props> = ({ videoId, onCommentAdded }) => {
   
       token = newToken;
   
-      res = await fetch(`http://localhost:8000/api/comments/${id}/delete/`, {
+      res = await fetch(`https://codecaveback2.onrender.com/api/comments/${id}/delete/`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
