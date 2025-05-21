@@ -131,7 +131,7 @@ interface Comment {
     avatar?: string;
   };
   replies?: Comment[];
-  likedBy?: string[];
+  likedBy?: number[];
 }
 
 interface Props {
@@ -232,6 +232,7 @@ const CommentSection: React.FC<Props> = ({ videoId, onCommentAdded }) => {
           onReply={handleAddComment}
           onLikeUpdate={fetchComments}
           onDelete={handleDeleteComment}
+          level={0}
         />
       ))}
 

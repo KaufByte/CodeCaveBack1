@@ -467,7 +467,7 @@ const toggleLike = async (videoId: number) => {
                       userRole === "admin" ||
                       m.allowedRoles.length === 0 ||
                       m.allowedRoles.map(normalizeLevel).includes(mappedLevel);
-                      console.log("Материал", m.title, "Roles:", m.allowedRoles, "Mapped:", mappedLevel);
+                      console.log("Materials", m.title, "Roles:", m.allowedRoles, "Mapped:", mappedLevel);
                     return (
                       <Box key={idx} sx={{ mb: 2 }}>
                         {hasAccess ? (
