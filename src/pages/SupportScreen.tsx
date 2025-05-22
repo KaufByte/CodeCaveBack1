@@ -42,7 +42,7 @@ const SupportScreen: React.FC = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/support/", {
+      const res = await fetch("https://codecaveback2.onrender.com/api/support/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, message }),

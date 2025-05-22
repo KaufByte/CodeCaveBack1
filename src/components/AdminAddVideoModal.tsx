@@ -189,25 +189,8 @@ const AdminAddVideoModal: React.FC<Props> = ({ open, onClose, onSubmit }) => {
   const [materialTitle, setMaterialTitle] = useState("");
   const [materialUrl, setMaterialUrl] = useState("");
   const [showMaterials, setShowMaterials] = useState(false);
+  
 
-  const uploadToCloudinary = async (file: File, folder = "codecave") => {
-    const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-      formData.append("folder", folder);
-
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`, {
-        method: "POST",
-        body: formData,
-      });
-
-    if (!res.ok) {
-      throw new Error("Failed to upload to Cloudinary");
-    }
-
-    const data = await res.json();
-    return data.secure_url as string;
-  };
   useEffect(() => {
     const saved = localStorage.getItem("savedHashtags");
     if (saved) {
@@ -317,52 +300,7 @@ const handleSubmit = () => {
   onSubmit(formData);
   onClose();
 };
-//   const handleSubmit = async () => {
-//   if (!title || !previewFile || !videoFile) {
-//     alert(t("fillRequired"));
-//     return;
-//   }
 
-//   const cleanedTags = hashtags
-//     .split(",")
-//     .map((h) => h.trim().replace(/^#+/, ""))
-//     .filter(Boolean);
-
-//   const updatedHashtags = Array.from(new Set([...availableHashtags, ...cleanedTags]));
-//   localStorage.setItem("savedHashtags", JSON.stringify(updatedHashtags));
-
-//   const now = new Date();
-//   const dateUa = now.toLocaleDateString("uk-UA", { day: "2-digit", month: "long", year: "numeric" });
-//   const dateUs = now.toLocaleDateString("en-US", { day: "2-digit", month: "long", year: "numeric" });
-//   const createdAtUa = now.toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" });
-//   const createdAtUs = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
-
-//   try {
-//     // 🔼 Загрузка в Cloudinary
-//     const previewUrl = await uploadToCloudinary(previewFile, "codecave/previews");
-//     const videoUrl = await uploadToCloudinary(videoFile, "codecave/videos");
-
-//     const formData = new FormData();
-//     formData.append("title", title);
-//     formData.append("description", description);
-//     formData.append("date_ua", dateUa);
-//     formData.append("date_us", dateUs);
-//     formData.append("created_at_ua", createdAtUa);
-//     formData.append("created_at_us", createdAtUs);
-//     formData.append("min_subscription_level", minSubscriptionLevel);
-//     formData.append("hashtags", JSON.stringify(cleanedTags));
-//     formData.append("timecodes", JSON.stringify(timecodes));
-//     formData.append("materials", JSON.stringify(materials));
-//     formData.append("preview", previewUrl); // передаем как строку
-//     formData.append("video", videoUrl);     // передаем как строку
-
-//     await onSubmit(formData);
-//     onClose();
-//   } catch (error) {
-//     console.error("Upload error:", error);
-//     alert("Upload failed. Try again.");
-//   }
-// };
 
 
   return (

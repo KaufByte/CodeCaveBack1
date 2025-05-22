@@ -665,7 +665,7 @@ const clearHoverTime = () => {
 
       <ReactPlayer
         ref={playerRef}
-        url={videoUrl}
+        url={`${videoUrl}?q_auto=f_auto`}
         playing={playing}
         volume={volume}
         playbackRate={playbackRate}
@@ -678,14 +678,16 @@ const clearHoverTime = () => {
         height="100%"
         controls={false}
         style={{ pointerEvents: "none" }}
-        config={{
-          file: {
-            attributes: {
-              controlsList: "nodownload",
-              disablePictureInPicture: false
-            }
-          }
-        }}
+         config={{
+            file: {
+              attributes: {
+                preload: "none", 
+                playsInline: true,
+                controlsList: "nodownload",
+                disablePictureInPicture: false,
+              },
+            },
+          }}
       />
 
       {showIndicator && (

@@ -81,7 +81,7 @@ const SubscriptionCard: React.FC = () => {
       if (!userId) return;
 
       try {
-        const res = await authFetch(`http://localhost:8000/api/users/${userId}/`);
+        const res = await authFetch(`https://codecaveback2.onrender.com/api/users/${userId}/`);
         if (!res || !res.ok) throw new Error("Не вдалося отримати дані користувача");
         const data = await res.json();
         setUser(data);
@@ -115,7 +115,7 @@ const SubscriptionCard: React.FC = () => {
     if (!customerId) return setHasCard(false);
 
     try {
-      const res = await fetch("http://localhost:8000/api/stripe/payment-methods/", {
+      const res = await fetch("https://codecaveback2.onrender.com/api/stripe/payment-methods/", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -131,7 +131,7 @@ const SubscriptionCard: React.FC = () => {
     setLoading(true);
 
     if (hasCard) {
-      const res = await authFetch("http://localhost:8000/api/stripe/create-strict-subscription/", {
+      const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/create-strict-subscription/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -159,7 +159,7 @@ const SubscriptionCard: React.FC = () => {
 
     const stripe = await stripePromise;
 
-    const res = await authFetch("http://localhost:8000/api/stripe/checkout-session/", {
+    const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/checkout-session/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -187,7 +187,7 @@ const SubscriptionCard: React.FC = () => {
   
   const cancelSubscription = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/stripe/cancel-subscription/", {
+      const res = await fetch("https://codecaveback2.onrender.com/api/stripe/cancel-subscription/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -207,7 +207,7 @@ const SubscriptionCard: React.FC = () => {
     user?.subscription_name === sub.priceId;
   const isPremium = (id: number) => id === 3;
   const handleBalancePayment = async (sub: SubscriptionProps) => {
-    const res = await authFetch("http://localhost:8000/api/stripe/subscribe-with-balance/", {
+    const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/subscribe-with-balance/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
