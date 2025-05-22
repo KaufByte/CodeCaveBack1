@@ -28,7 +28,7 @@ const PaymentsScreen: React.FC = () => {
   const { t } = useTranslation("payments");
   const fetchCustomerId = async () => {
     try {
-      const res = await authFetch("http://localhost:8000/api/stripe/customer-id/");
+      const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/customer-id/");
       if (!res) return;
       const data = await res.json();
       if (data.customer_id) {
@@ -41,7 +41,7 @@ const PaymentsScreen: React.FC = () => {
 
   const fetchSavedCards = async () => {
     try {
-      const res = await authFetch("http://localhost:8000/api/stripe/payment-methods/");
+      const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/payment-methods/");
       if (!res) {
         console.warn("authFetch вернул undefined");
         setSavedCards([]);
@@ -57,7 +57,7 @@ const PaymentsScreen: React.FC = () => {
 
   const handleDeleteCard = async (paymentMethodId: string) => {
   try {
-    const res = await authFetch(`http://localhost:8000/api/stripe/payment-methods/${paymentMethodId}/`, {
+    const res = await authFetch(`https://codecaveback2.onrender.com/api/stripe/payment-methods/${paymentMethodId}/`, {
       method: "DELETE",
     });
 
@@ -71,7 +71,7 @@ const PaymentsScreen: React.FC = () => {
 
   const fetchBillingHistory = async () => {
   try {
-    const res = await authFetch("http://localhost:8000/api/stripe/invoices/");
+    const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/invoices/");
     if (!res) {
       console.warn("authFetch вернул undefined");
       return;

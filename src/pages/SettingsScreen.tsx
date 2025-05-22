@@ -347,7 +347,7 @@ const SettingsScreen: React.FC = () => {
       return;
     }
   
-    fetch(`http://localhost:8000/api/users/${userId}/`, {
+    fetch(`https://codecaveback2.onrender.com/api/users/${userId}/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`, 
@@ -426,7 +426,7 @@ const SettingsScreen: React.FC = () => {
       language,
     };
   
-    const saveResponse = await fetch(`http://localhost:8000/api/users/${userId}/`, {
+    const saveResponse = await fetch(`https://codecaveback2.onrender.com/api/users/${userId}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

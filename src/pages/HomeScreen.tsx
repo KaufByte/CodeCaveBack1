@@ -84,7 +84,7 @@ useEffect(() => {
 
   const fetchUser = async () => {
     try {
-      const res = await authFetch("http://localhost:8000/api/me/");
+      const res = await authFetch("https://codecaveback2.onrender.com/api/me/");
       if (!res || !res.ok) throw new Error("Не вдалося отримати дані користувача");
       const data = await res.json();
       setUser(data);
@@ -140,7 +140,7 @@ const subData = subscriptions.find(s => s.priceId === user.subscription_name);
     setLoadingTopUp(true);
 
     try {
-      const res = await authFetch("http://localhost:8000/api/stripe/topup-session/", {
+      const res = await authFetch("https://codecaveback2.onrender.com/api/stripe/topup-session/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
