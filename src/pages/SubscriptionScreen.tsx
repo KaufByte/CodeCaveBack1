@@ -93,10 +93,16 @@ const SubscriptionCard: React.FC = () => {
     fetchUser();
 
     const pathname = window.location.pathname;
-    if (pathname === "/success") {
-      const timer = setTimeout(fetchUser, 1000); 
-      return () => clearTimeout(timer);
+    // if (pathname === "/success") {
+    //   const timer = setTimeout(fetchUser, 1000); 
+    //   return () => clearTimeout(timer);
+    // }
+    if (window.location.pathname === "/success") {
+      const interval = setInterval(fetchUser, 2000); 
+      setTimeout(() => clearInterval(interval), 10000); 
+      return () => clearInterval(interval); 
     }
+
   }, []);
 
 
