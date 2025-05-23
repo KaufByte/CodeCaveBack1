@@ -41,7 +41,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   try {
-    const res = await fetch("http://localhost:8000/api/stripe/setup-intent/", {
+    const res = await fetch("https://codecaveback2.onrender.com/api/stripe/setup-intent/", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -62,7 +62,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     const paymentMethodId = result.setupIntent.payment_method;
 
-    const duplicateCheck = await fetch(`http://localhost:8000/api/stripe/check-duplicate/${paymentMethodId}/`, {
+    const duplicateCheck = await fetch(`https://codecaveback2.onrender.com/pi/stripe/check-duplicate/${paymentMethodId}/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
