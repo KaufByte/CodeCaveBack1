@@ -531,9 +531,23 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, poster, videoId }) 
     setAnchorEl(null);
   };
 
+  // const handleReady = () => {
+  //   if (initialPlayed && !hasSeeked && playerRef.current) {
+  //     playerRef.current.seekTo(initialPlayed, "fraction");
+  //     setHasSeeked(true);
+  //   }
+  // };
   const handleReady = () => {
-    if (initialPlayed && !hasSeeked && playerRef.current) {
-      playerRef.current.seekTo(initialPlayed, "fraction");
+    const player = playerRef.current;
+    if (!player) return;
+
+    const internal = player.getInternalPlayer() as HTMLVideoElement;
+    if (internal?.duration && !duration) {
+      setDuration(internal.duration);
+    }
+
+    if (initialPlayed !== null && !hasSeeked) {
+      player.seekTo(initialPlayed, "fraction");
       setHasSeeked(true);
     }
   };
@@ -665,12 +679,14 @@ const clearHoverTime = () => {
 
       <ReactPlayer
         ref={playerRef}
-        url={`${videoUrl}?q_auto=f_auto`}
+        url={videoUrl}
         playing={playing}
         volume={volume}
         playbackRate={playbackRate}
         onProgress={handleProgress}
-        onDuration={setDuration}
+        onDuration={(d) => {
+          if (d > 0) setDuration(d);
+        }}
         onReady={handleReady}
         onBuffer={() => setIsBuffering(true)}
         onBufferEnd={() => setIsBuffering(false)}
