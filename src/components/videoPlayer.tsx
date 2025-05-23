@@ -606,26 +606,29 @@ const clearHoverTime = () => {
             zIndex: 12
           }}
         >
-          <Box
-            sx={{
-              position: "absolute",
-              top: 8,
-              right: 8,
-              zIndex: 14,
-              backgroundColor: "rgba(0,0,0,0.6)",
-              color: "#fff",
-              px: 1,
-              py: 0.5,
-              borderRadius: 1,
-              display: "flex",
-              alignItems: "center",
-              fontSize: 13,
-              gap: 0.5
-            }}
-          >
-            <Videocam fontSize="small" />
-            {formatTime(timeLeft)}
-          </Box>
+          {duration > 0 && (
+            <Box
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                zIndex: 14,
+                backgroundColor: "rgba(0,0,0,0.6)",
+                color: "#fff",
+                px: 1,
+                py: 0.5,
+                borderRadius: 1,
+                display: "flex",
+                alignItems: "center",
+                fontSize: 13,
+                gap: 0.5
+              }}
+            >
+              <Videocam fontSize="small" />
+              {formatTime(timeLeft)}
+            </Box>
+          )}
+
 
           <Box sx={{
             position: "absolute",
