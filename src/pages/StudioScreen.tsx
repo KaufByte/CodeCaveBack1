@@ -158,12 +158,14 @@ const StudioPage: React.FC = () => {
           <TableRow>
             <TableCell>Email</TableCell>
             <TableCell>Username</TableCell>
+
             <TableCell>Role</TableCell>
             <TableCell>Subscription</TableCell>
             <TableCell>Status</TableCell>
             <TableCell>Price</TableCell>
             <TableCell>Balance (€)</TableCell>
             <TableCell>Action</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -173,6 +175,7 @@ const StudioPage: React.FC = () => {
               <TableCell>{u.username}</TableCell>
               <TableCell>{u.role}</TableCell>
 
+              {/* Селект подписки */}
               <TableCell>
                 <FormControl size="small" fullWidth>
                   <Select
@@ -232,7 +235,7 @@ const StudioPage: React.FC = () => {
                       outline: "none",
                       boxShadow: "none",
                     }}}
-                    title="Активувати знову"
+                    title="Activate agaon"
                   >
                     <ReplayIcon />
                   </IconButton>
@@ -244,14 +247,14 @@ const StudioPage: React.FC = () => {
                       outline: "none",
                       boxShadow: "none",
                   }}}
-                  title="Скасувати підписку"
+                  title="Refuse subscription"
                 >
                   <CancelIcon />
                 </IconButton>
 
                 <IconButton
                   onClick={() => handleDeleteUser(u.id)}
-                  title="Видалити користувача"
+                  title="Delete user"
                   sx={{ mb: 1, mr: 1 ,"&:focus": {
                       outline: "none",
                       boxShadow: "none",
