@@ -1,0 +1,16 @@
+{
+  "title": "Стрічка",
+  "timecodes": "Таймкоди",
+  "showMore": "Показати ще",
+  "hide": "Сховати",
+  "additionalMaterials": "Додаткові матеріали",
+  "requiredLevel": "Потрібен рівень",
+  "or": "або",
+  "upgradeLevel": "Підвищити рівень",
+  "upgradeToWatch": "Підвищіть рівень, щоб переглянути відео з рівня {{level}}",
+  "roles": {
+    "Junior": "Джуніор",
+    "Chilli": "Кава мідла",
+    "Powerful SEO": "Потужний SEO"
+  }
+}

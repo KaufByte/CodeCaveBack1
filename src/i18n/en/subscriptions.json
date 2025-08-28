@@ -1,0 +1,25 @@
+{
+    "info": "💳 Subscription payments are auto-billed monthly. No refunds.",
+    "choose": "Choose Your Plan",
+    "buy": "Buy",
+    "paymentTitle": "Choose a payment method",
+    "newCard": "New Card",
+    "saveCard": "Save card for future payments",
+    "balancePayment": "Balance payment (no VAT)",
+    "cardPayment": "Card payment",
+    "tax": "VAT (Ukraine - 0%)",
+    "total": "Total amount to pay",
+    "pay": "Pay",
+    "commitAccess": {
+      "name": "Junior",
+      "description": "Get access to private videos and a closed chat for subscribers."
+    },
+    "mergeMaster": {
+      "name": "Coffee of Middle",
+      "description": "All the benefits of Junior, as well as access to video materials"
+    },
+    "rootPrivileges": {
+      "name": "Powerful SEO",
+      "description": "Complete access to all previous tiers, plus priority support, feature voting, and direct influence on upcoming projects."
+    }
+}

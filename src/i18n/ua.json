@@ -1,0 +1,25 @@
+{
+    "settings": {
+      "profileInfo": "Інформація профілю",
+      "uploadPhoto": "Завантажити фото",
+      "displayName": "Ім'я користувача",
+      "email": "Електронна пошта",
+      "country": "Країна",
+      "password": "Пароль",
+      "newPassword": "Новий пароль",
+      "confirmPassword": "Підтвердження паролю",
+      "languagePref": "Мова інтерфейсу",
+      "language": "Мова",
+      "notifications": "Email сповіщення",
+      "replies": "Відповіді на ваші коментарі",
+      "marketing": "Маркетинг",
+      "productUpdates": "Оновлення продукту та новини спільноти",
+      "newsletter": "Розсилка",
+      "promotions": "Спеціальні пропозиції",
+      "creatorUpdates": "Новини від творців",
+      "saveChanges": "Зберегти зміни",
+      "passwordMismatch": "Паролі не збігаються",
+      "saved": "Зміни збережено",
+      "failedToSave": "Не вдалося зберегти зміни."
+    }
+}

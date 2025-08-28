@@ -1,0 +1,26 @@
+{
+    "settings": {
+      "profileInfo": "Profile Information",
+      "uploadPhoto": "Upload Photo",
+      "displayName": "Display Name",
+      "email": "Email",
+      "country": "Country",
+      "password": "Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "languagePref": "Language Preference",
+      "language": "Language",
+      "notifications": "Email Notifications",
+      "replies": "Replies to your comments",
+      "marketing": "Marketing",
+      "productUpdates": "Product updates and community announcements",
+      "newsletter": "Member newsletter",
+      "promotions": "Special offers and promotions",
+      "creatorUpdates": "General creator updates",
+      "saveChanges": "Save Changes",
+      "passwordMismatch": "Passwords do not match",
+      "saved": "Changes saved successfully",
+      "failedToSave": "Failed to save changes."
+    }
+}
+  

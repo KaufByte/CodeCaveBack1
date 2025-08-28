@@ -1,0 +1,12 @@
+{
+  "paymentMethods": "Методи оплати",
+  "addPaymentMethod": "Додати метод оплати",
+  "savedCards": "Збережені картки",
+  "loadingCards": "Завантаження карток...",
+  "noCards": "Поки що жодної картки не збережено.",
+  "cardEnding": "Картка, що закінчується на",
+  "expires": "Діє до",
+  "billingHistory": "Історія оплат",
+  "amount": "Сума",
+  "date": "Дата"
+}

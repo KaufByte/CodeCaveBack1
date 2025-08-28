@@ -1,0 +1,12 @@
+{
+  "paymentMethods": "Payment Methods",
+  "addPaymentMethod": "Add Payment Method",
+  "savedCards": "Saved Cards",
+  "loadingCards": "Loading cards...",
+  "noCards": "No cards saved yet.",
+  "cardEnding": "Card ending in",
+  "expires": "Expires",
+  "billingHistory": "Billing History",
+  "amount": "Amount",
+  "date": "Date"
+}
